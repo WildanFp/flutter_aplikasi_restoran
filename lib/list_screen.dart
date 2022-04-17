@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_aplikasi_restoran/detail_screen.dart';
 import 'package:flutter_aplikasi_restoran/landing_screen.dart';
 import 'package:flutter_aplikasi_restoran/item.dart';
 
 class Menu extends StatelessWidget {
-  Menu({ Key? key }) : super(key: key);
-  final List<Item> items = [
-    Item(name: 'Burger Murder', price: 50000, image: 'https://th.bing.com/th/id/OIP.KPsLXsx7ihPGHMTaL4DKTgHaGe?w=188&h=180&c=7&r=0&o=5&pid=1.7'),
-  ];
+  Menu({Key? key}) : super(key: key);
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
@@ -23,6 +21,11 @@ class Menu extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = items[index];
             return InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Detail(item: item,);
+                }));
+              },
               child: Card(
                 child: Container(
                   margin: const EdgeInsets.all(8),
