@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_aplikasi_restoran/item.dart';
 
+import 'order_screen.dart';
+
 class Detail extends StatelessWidget {
-  Detail({ Key? key, required this.item }) : super(key: key);
-final Item item;
+  Detail({Key? key, required this.item}) : super(key: key);
+  final Item item;
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
@@ -29,7 +31,8 @@ final Item item;
                         fontSize: 20.0,
                         fontFamily: 'Staatliches',
                       )),
-                ),],
+                ),
+              ],
             ),
             SizedBox(height: 16.0),
             Row(
@@ -47,6 +50,25 @@ final Item item;
                 IconButton(
                   icon: Icon(Icons.add_shopping_cart),
                   onPressed: () {},
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton
+                        .styleFrom(
+                            primary: Colors.yellow,
+                            padding: EdgeInsets.all(8.0)),
+                    onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Order()),
+                        );
+                      },
+                    child: Text('Order'),
+                  ),
                 ),
               ],
             ),
